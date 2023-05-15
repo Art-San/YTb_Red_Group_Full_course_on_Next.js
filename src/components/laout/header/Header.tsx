@@ -6,7 +6,7 @@ import styles from './Header.module.css'
 const Header: FC = () => {
     const { pathname } = useRouter()
 
-    console.log(pathname)
+    console.log(pathname) // 33:53
     return (
         <header className={styles.header}>
             <Link href="/">Home</Link>
