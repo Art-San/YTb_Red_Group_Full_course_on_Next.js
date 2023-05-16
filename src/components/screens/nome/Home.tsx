@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import Image from 'next/image'
-import styles from './page.module.css'
+import styles from './page.module.scss'
 import Layout from '../../laout/Layout'
 
 const Home: FC = () => {
