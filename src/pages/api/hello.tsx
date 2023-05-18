@@ -1,12 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import api from '../../../carbd/index'
 
-type Data = {
-    name: string
-}
+const cars = api.cars.fetchAll()
 
-export default function handler(
-    req: NextApiRequest,
-    res: NextApiResponse<Data>
-) {
-    res.status(200).json({ name: 'John Doe' })
+// type Data = {
+//     // name: string
+// }
+
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+    res.status(200).json(cars)
 }

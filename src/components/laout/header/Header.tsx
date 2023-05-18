@@ -6,7 +6,7 @@ import styles from './Header.module.scss'
 const Header: FC = () => {
     const { pathname } = useRouter()
 
-    console.log(pathname) // 33:53
+    // console.log(pathname) // 33:53
     return (
         <header className={styles.header}>
             <Link href="/" className={pathname === '/' ? styles.active : ''}>

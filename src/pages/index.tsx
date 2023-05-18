@@ -1,8 +1,42 @@
 import Home from '@/components/screens/nome/Home'
+import { ICarData } from '@/interfaces/car.interface'
+import { GetServerSideProps, GetStaticProps, NextPage } from 'next'
+import api from '../../carbd/index'
 
-export default function HomePage() {
-    return <Home />
+const HomePage: NextPage<ICarData> = ({ cars }) => {
+    return <Home cars={cars} />
 }
+// SSG
+export const getStaticProps: GetStaticProps<ICarData> = async () => {
+    const cars = await api.cars.fetchAll()
+    return {
+        props: { cars },
+        revalidate: 60 // будет обновлятся кажые 60 ISR
+    }
+}
+
+export default HomePage
+
+// ===================== вариант из урока  SSR =======================
+// import Home from '@/components/screens/nome/Home'
+// import { ICarData } from '@/interfaces/car.interface'
+// import { CarServise } from '@/services/car.service'
+// import { GetServerSideProps, NextPage } from 'next'
+
+// const HomePage: NextPage<ICarData> = ({ cars }) => {
+//     return <Home cars={cars} />
+// }
+
+// export const getServerSideProps: GetServerSideProps<ICarData> = async () => {
+//     const cars = await CarServise.getAll()
+//     return {
+//         props: { cars }
+//     }
+// }
+// export default HomePage
+// ======================================================================
+
+//=========================== начало  ===================================
 
 // import Head from 'next/head'
 // import Image from 'next/image'
