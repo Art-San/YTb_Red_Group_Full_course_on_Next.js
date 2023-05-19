@@ -12,7 +12,7 @@ const Home: FC<ICarData> = ({ cars }) => {
             title="Home page"
             description="We love our customer, we like to sale cars"
         >
-            <h1>Hello htnllessons</h1>
+            <h1>Главная страница</h1>
             {cars.length ? (
                 cars.map((car) => <CarItem key={car.id} car={car} />)
             ) : (
